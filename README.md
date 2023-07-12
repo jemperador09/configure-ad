@@ -36,7 +36,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   - Create a Resource group
     - In resource group, create a virtual machine (this will be your Domain Controller)
       - Region: pick the region closest to you
-      - Image: for our Domain Controller, choose Windows Server 2022
+      - Image: for our Domain Controller, choose <b>Windows Server 2022</b>
       - Size: up to you. More CPUs = faster processing
     - Create username and password (don't forget it!)
     - Click "Review + create" to create your Domain Controller
@@ -48,13 +48,14 @@ This tutorial outlines the implementation of on-premises Active Directory within
  <p>
    
   - Create another virtual machine (this will be your Client)
+    - Image: <b>Windows 10 Pro</b>
  </p>
 <p>
 <img src="https://i.imgur.com/Z6HbLRL.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 
-  - Before clicking "Review + create," make sure the virtual network is with you Domain Controller
+  - Before clicking "Review + create," make sure the virtual network is with your Domain Controller
 </p>
 
 <p>
@@ -181,7 +182,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
   - Just to clarify this was connected successfully, go into command prompt
 <img src="https://i.imgur.com/wcxHhhj.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 
-As an Admin user, 
+<b>TL;DR</b>
+  - Change private IP address of your Domain Controller to "Static"
+  - Change Client-1 DNS Settings on Azure to DC-1's private IP address
+
 </p>
 
 
