@@ -105,11 +105,69 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
   - Create a password and keep clicking next till Prerequisites Check passed successfully
   - Once passed, click Intall (DC will Restart once installed)
-  - Restart and then log back into DC-1 as user: mydomain.com\(username)
+  - Restart and then log back into DC-1 as user: mydomain.com\ [username]
 </p>
+<p>
 
+<b>4 ) Create an Admin and Normal User Account in Active Directory</b>
 
+  - Go into Active Directory Users and Computers
+    - Right click "mydomain.com" -> New -> Organzational Unit
+      - Create folders named "_ADMINS" and "_EMPLOYEES" 
+<img src="https://i.imgur.com/Qrv3G0M.png" height="30%" width="30%" alt="Disk Sanitization Steps"/>
 
+  - Right click _ADMINS and create a new User
+    - For this tutorial, when creating a password, choose the option "Password never expires"
+  - Next, give created user a Domain Admin. Right click user -> Properties -> Member of -> Add -> type in Domain -> Check names for Domain Admin
+<img src="https://i.imgur.com/YjJjdw4.png" height="30%" width="30%" alt="Disk Sanitization Steps"/>
+
+  - Click Apply, then OK
+  - Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\ [created Admin user]” 
+</p>
+<p>
+
+<b>5 ) Join Client-1 to your domain (mydomain.com)</b>
+
+  - From the Azure Portal, set Client-1’s DNS settings to the Domain Controllers’s Private IP address
+    - Virtual Machine -> Client-1 -> Networking -> DNS Servers
+      - Unclick "Inherit from virtual network" and click "Custom"
+      - Input DC's Private IP address and click Save
+<img src="https://i.imgur.com/X6XkJNb.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - Once updated, restart Client-1 and log back in
+    - To check if it updated, go into Command Prompt and type "ipconfig /all" (Private IP = 10.0.08)
+<img src="https://i.imgur.com/5zEkVXh.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - Right click Windows at the bottom left and choose System
+    - Click "Rename this PC (advanced)" -> Change... -> Under Member of, choose Domain and input "mydomain.com"
+<img src="https://i.imgur.com/B3sMlLg.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+
+  - Input your created Admin user (ie. mydomain.com\ [created Admin user]) and password
+  - Once Client-1 is now a member of the domain, Client-1 will Restart
+    - To ensure Client-1 is a member, check back to your Domain Controller to see if it was added under Computers in Active Directory
+<img src="https://i.imgur.com/lgMocuy.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+</p>
+<p>
+<b>6 ) Setup Remote Desktop for non-administrative users on Client-1</b>
+
+  - Log into Client-1 as mydomain.com\ [created Admin user] and open system properties
+    - Click "Remote Desktop" and allow access to "Domain users"
+<img src="https://i.imgur.com/iv1whPU.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - You can now log into Client-1 as a normal, non-administrative user now
+</p>
+<p>
+<b>7 ) Create a bunch of additional users and attempt to log into Client-1 with one of the users</b>
+
+  Doing this will simulate a group of users from either a company or school
+
+  - Login to DC-1 as [created Admin user]
+  - Open PowerShell_ise as an "administrator"
+<img src="https://i.imgur.com/2GLUdrQ.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - Create a new File and paste the contents of the <a href=https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1>script</a> into it 
+</p>
 
 
 
