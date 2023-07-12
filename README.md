@@ -16,7 +16,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
+- Windows 10 (22H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
@@ -182,9 +182,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   - Just to clarify this was connected successfully, go into command prompt
 <img src="https://i.imgur.com/wcxHhhj.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 
-<b>TL;DR</b>
-  - Change private IP address of your Domain Controller to "Static"
-  - Change Client-1 DNS Settings on Azure to DC-1's private IP address
+<b>Congragulations!!</b> You've implemented Active Directory (On-Premises) in Azure
 
 </p>
 
