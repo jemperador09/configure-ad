@@ -166,7 +166,22 @@ This tutorial outlines the implementation of on-premises Active Directory within
   - Open PowerShell_ise as an "administrator"
 <img src="https://i.imgur.com/2GLUdrQ.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 
-  - Create a new File and paste the contents of the <a href=https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1>script</a> into it 
+  - Create a new File and paste the contents of the <a href=https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1>script</a> into it
+  - Run the script and observe the accounts being created
+<img src="https://i.imgur.com/bmsUwlz.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - When finished, open "Active Directory Users and Computers" and observe the accounts in the _EMPLOYEES folder
+<img src="https://i.imgur.com/OCGvmzG.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - Attempt to log into Client-1 with one of the accounts
+
+<img src="https://i.imgur.com/X4h9ycR.png" height="40%" width="40%" alt="Disk Sanitization Steps"/><img src="https://i.imgur.com/jilN0vP.png" height="20%" width="40%" alt="Disk Sanitization Steps"/>
+
+  - Password should be the same as mydomain.com
+  - Just to clarify this was connected successfully, go into command prompt
+<img src="https://i.imgur.com/wcxHhhj.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+
+As an Admin user, 
 </p>
 
 
